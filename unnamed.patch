@@ -1,0 +1,10 @@
+Index: src/quakeable.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/quakeable.java	(date 1539854061668)
++++ src/quakeable.java	(date 1539854061668)
+@@ -0,0 +1,2 @@
++public interface quakeable {
++}
