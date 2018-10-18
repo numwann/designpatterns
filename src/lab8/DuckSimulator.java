@@ -3,8 +3,14 @@ package lab8;
 public class DuckSimulator {
     public static void main(String[] args) {
         DuckSimulator simulator = new DuckSimulator();
-        simulator.simulate();
-        simulator.simulate(new RubberDuck());
+        AbstractDuckFactory duckFactory = new CountingDuckFactory();
+        AbstractDuckFactory duckFactory2 = new CountingDuckFactory(new EchoDuckFactory());
+
+//        simulator.simulate();
+//        simulator.simulate(new RubberDuck());
+        simulator.simulate(duckFactory);
+        simulator.simulate(duckFactory2);
+
 
 
     }
@@ -36,5 +42,17 @@ public class DuckSimulator {
         System.out.println("Num Of Quack(q1) = "+((QuackCounter) quackcount1).getNumOfQuack());
         System.out.println("Num Of Quack(q2) = "+((QuackCounter) quck).getNumOfQuack());
 
+    }
+    void simulate(AbstractDuckFactory duckFactory){
+        quackeable mullard = duckFactory.createMullardDuck();
+        quackeable redhead =  duckFactory.createReadHeadDuck();
+        quackeable rubber = duckFactory.createRubberDuck();
+        quackeable pigeon = duckFactory.createPegeon();
+        System.out.println("DuckFactory------------------------------");
+        mullard.quake();
+        redhead.quake();
+        rubber.quake();
+        pigeon.quake();
+        
     }
 }
