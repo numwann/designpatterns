@@ -5,11 +5,13 @@ public class DuckSimulator {
         DuckSimulator simulator = new DuckSimulator();
         AbstractDuckFactory duckFactory = new CountingDuckFactory();
         AbstractDuckFactory duckFactory2 = new CountingDuckFactory(new EchoDuckFactory());
+        DuckSimulator simulatorFlock = new DuckSimulator();
 
 //        simulator.simulate();
 //        simulator.simulate(new RubberDuck());
-        simulator.simulate(duckFactory);
-        simulator.simulate(duckFactory2);
+//        simulator.simulate(duckFactory);
+//        simulator.simulate(duckFactory2);
+        simulatorFlock.simulate(new Flock(new ReadHeadDuck()));
 
 
 
@@ -53,6 +55,15 @@ public class DuckSimulator {
         redhead.quake();
         rubber.quake();
         pigeon.quake();
-        
+
+    }
+    void simulate(Flock flock){
+        flock.addDuck(new MallardDuck());
+        flock.addDuck(new RubberDuck());
+        flock.addDuck(new ReadHeadDuck());
+        flock.quake();
+
+
+
     }
 }
